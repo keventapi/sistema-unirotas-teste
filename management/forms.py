@@ -49,7 +49,8 @@ class BusStopForm(forms.ModelForm):
             related_cities = city.municipios_relacionados.values_list('id', flat=True)
 
             self.fields['city'].queryset = Municipio.objects.filter(
-                Q(id=city.id) | (Q(id__in=related_cities) & Q(ofertado_pelo_sistema=False))).distinct()
+                Q(id=city.id) | (Q(id__in=related_cities) #& Q(ofertado_pelo_sistema=False)
+                                 )).distinct()
         
 class InstitutionForm(forms.ModelForm):
     class Meta:
