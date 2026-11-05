@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'anymail',
     'authentication',
     'management',
     'operation',
@@ -178,15 +179,8 @@ email_real = os.environ.get('EMAIL_HOST_USER')
 DEFAULT_FROM_EMAIL = f'"{nome_exibido}" <{email_real}>'
 #DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'noreply@seusite.com')
 INVITE_TTL_SECONDS = 86400
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
-        'OPTIONS': {
-            'host': 'smtp.gmail.com',
-            'port': 587,
-            'use_tls': True,
-            'username': os.environ.get('EMAIL_HOST_USER'),
-            'password': os.environ.get('EMAIL_HOST_PASSWORD'),
-        },
-    },
+EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+ANYMAIL = {
+    "RESEND_API_KEY": os.environ.get("EMAIL_HOST_PASSWORD"),
 }
+DEFAULT_FROM_EMAIL = "onboarding@resend.dev"
