@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    '.onrender.com', 'localhost', '127.0.0.1', '.up.railway.app'
+    '.onrender.com', 'localhost', '127.0.0.1', '.up.railway.app', 'sistema-unirotas-teste-production.up.railway.app'
 ]
 
 
