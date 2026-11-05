@@ -87,11 +87,8 @@ def enviar_email_convite(email_destino, link_convite):
             recipient_list=[email_destino],
             fail_silently=False,
         )
-        print(sent)
         return sent != 0
-    except SMTPException as e:
-        print(e)
+    except SMTPException:
         return False
-    except Exception as e:
-        print(e)
+    except Exception:
         return False
