@@ -183,7 +183,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
         'OPTIONS': {
             'host': 'smtp.gmail.com',
-            'port': 587,
+            'port': 443,
             'use_tls': True,
             'username': os.environ.get('EMAIL_HOST_USER'),
             'password': os.environ.get('EMAIL_HOST_PASSWORD'),
