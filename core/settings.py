@@ -34,6 +34,9 @@ ALLOWED_HOSTS = [
     '.onrender.com', 'localhost', '127.0.0.1', '.up.railway.app', 'sistema-unirotas-teste-production.up.railway.app'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://sistema-unirotas-teste-production.up.railway.app',
+]
 
 # Application definition
 AUTH_USER_MODEL = 'authentication.User'
