@@ -66,6 +66,14 @@ def enviar_email_convite(email_destino, link_convite):
     assunto = "Convite para cadastro na plataforma"
     mensagem = f"Olá,\n\nVocê foi convidado para se cadastrar. Acesse o link abaixo para concluir seu registro:\n\n{link_convite}\n\nSe não foi você que solicitou, ignore este e-mail."
     remetente = "noreply@seusite.com"
+    
+    sent_account = send_mail(
+        subject=assunto,
+        message=mensagem,
+        from_email=None,
+        recipient_list=[email_destino],
+    )
+
     ttl_horas = getattr(settings, "INVITE_TTL_SECONDS", 86400) // 3600
 
 
